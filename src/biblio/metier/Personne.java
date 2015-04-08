@@ -70,6 +70,10 @@ public class Personne {
 		this.sexe = sexe;
 	}
 	
+	@Override
+	public String toString() {
+		return "Personne [nom=" + nom + ", prenom=" + prenom + "]";
+	}
 	
 	
 }
