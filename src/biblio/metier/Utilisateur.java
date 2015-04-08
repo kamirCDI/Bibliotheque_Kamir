@@ -8,5 +8,6 @@ package biblio.metier;
  *
  */
 public class Utilisateur {
+	private String idUtilisateur;
 
 }
