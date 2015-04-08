@@ -7,5 +7,8 @@ public class EmpruntArchive {
 	private Date dateEmprunt;
 	private Utilisateur emprunteur;
 	private Exemplaire exemplaire;
+	private void sysout() {
+		// TODO Auto-generated method stub
 
+	}
 }
