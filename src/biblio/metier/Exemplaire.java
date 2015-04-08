@@ -67,7 +67,7 @@ public class Exemplaire {
 		private Utilisateur emprunteur;
 		private Exemplaire exemplaire;
 		
-		
+		/*******remarque***********************/
 		
 		public Date getDateEmprunt() {
 			return dateEmprunt;
