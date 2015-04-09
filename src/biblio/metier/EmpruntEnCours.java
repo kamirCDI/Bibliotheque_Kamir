@@ -23,11 +23,8 @@ public class EmpruntEnCours {
 		setExemplaire(null);
 	}
 
-	public EmpruntEnCours() {
-		
-	}
 	
-	public EmpruntEnCours(){
+	public EmpruntEnCours() throws BiblioException{
 		this(null,null);
 	}
 	
@@ -53,43 +50,22 @@ public class EmpruntEnCours {
 		return exemplaire;
 	}
 
-<<<<<<< HEAD
+
 	public void setExemplaire(Exemplaire exemplaire) {
 		if (exemplaire != null){
 			this.exemplaire = exemplaire;
 			exemplaire.setEmprunt(this);
 		}
 		
-=======
-	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
-		if(exemplaire==null)
-		{
-			this.exemplaire=exemplaire;
-			this.setDateEmprunt(null);
-		}
-		
-		else
-		{
-			if(exemplaire != this.exemplaire)
-			{
-				this.exemplaire=exemplaire;
-				this.exemplaire.setEmpruntEnCours(this);
-			}
-		}
-		
-		this.exemplaire = exemplaire;
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
+
 	}
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
+
 				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
 					+ emprunteur + ", examplaire=" + exemplaire + "]";
-=======
-		return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
-				+ emprunteur + ", exemplaire=" + exemplaire + "]";
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
+
 	}
 
 }

@@ -8,7 +8,7 @@ import biblio.metier.*;
 
 public class TestEmpruntEnCours {
 
-	public static void main(String[] args) throws ParseException { 
+	public static void main(String[] args) throws ParseException, BiblioException { 
 		
 		
 /**********************************Instanciation de la classe Personne, Utilisateur, Adherent, Employe****************************************************************/
