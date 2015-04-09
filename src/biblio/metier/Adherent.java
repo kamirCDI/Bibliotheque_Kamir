@@ -21,6 +21,10 @@ public class Adherent extends Utilisateur{
 		super(nom, prenom, dateNaissance, sexe, id, pwd, pseudonyme);
 		setTelephone(telephone);
 	}
+	
+	public Adherent() throws ParseException{
+		this("Devanne", "camille", sdf.parse("02/05/1970"), "feminin", 3, "kamille", "foufou", "0102253563");
+	}
 
 	/***************************Getters et Setters*******************************************/
 	public String getTelephone() {
@@ -28,7 +32,6 @@ public class Adherent extends Utilisateur{
 	}
 
 	
-
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}

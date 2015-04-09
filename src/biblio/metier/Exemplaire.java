@@ -11,15 +11,18 @@ public class Exemplaire {
 	private Date dateAchat;
 	private EnumStatusExemplaire status= EnumStatusExemplaire.DISPONIBLE;
 	private String isbn;
+	private EmpruntEnCours emprunt;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 	
 /*******************************constructeur***********************************************/
 	
 	public Exemplaire(int id, Date dateAchat, String isbn){
+		emprunt = new EmpruntEnCours(); 
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
+		
 	}
 	
 	public Exemplaire() throws ParseException{
@@ -58,24 +61,51 @@ public class Exemplaire {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	
+	public EmpruntEnCours getEmprunt() {
+		return emprunt;
+	}
+
+	public void setEmprunt(EmpruntEnCours emprunt) {
+		if (emprunt != null){
+			this.emprunt = emprunt;
+			setStatus(EnumStatusExemplaire.PRETE);
+		}
+		
+	}
+
+	
 
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
-		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
+		/*if (emprunt.getDateEmprunt()!= null)
+			return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
+					+ dateAchat + ", status=" + status + ", isbn=" + isbn
+						+ ", emprunt=" + emprunt + "]";*/
+		//else
+			return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
+			+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
+		
 	}
-
-/****************************Un exemplaire tient des prêts en cours******************************/	
+/****************************Un exemplaire tient 0 ou un prêt en cours******************************/	
 	
-	private static class EmpruntEnCours{
+	/*private static class EmpruntEnCours{
 		
 		private Date dateEmprunt;
 		private Utilisateur emprunteur;
 		private Exemplaire exemplaire;
 		
 		
-		public Date getDateEmprunt() {
+		public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur){
+			setDateEmprunt(dateEmprunt);
+			setEmprunteur(emprunteur);
+			//setExemplaire(exemplaire);
+		}*/
+		
+		
+	/*******************************Getteres et Setters**********************************************/	
+		/*public Date getDateEmprunt() {
 			return dateEmprunt;
 		}
 		public void setDateEmprunt(Date dateEmprunt) {
@@ -92,11 +122,20 @@ public class Exemplaire {
 		}
 		public void setExemplaire(Exemplaire exemplaire) {
 			this.exemplaire = exemplaire;
-		}
-	}
+		}*/
+		/***********************************toString()**********************************************/
+		/*@Override
+		public String toString() {
+			return "EmpruntEnCours [dateEmprunt=" + dateEmprunt
+					+ ", emprunteur=" + emprunteur + ", exemplaire="
+					+ exemplaire + "]";
+		}*/
+		
+}	
+	
 
 	
 	
 	
 
-}
+

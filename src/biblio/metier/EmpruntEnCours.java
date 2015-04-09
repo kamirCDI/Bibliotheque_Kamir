@@ -22,7 +22,11 @@ public class EmpruntEnCours {
 		setEmprunteur(emprunteur);
 		setExemplaire(null);
 	}
-
+	
+	public EmpruntEnCours(){
+		this(null,null);
+	}
+	
 	public Date getDateEmprunt() {
 		return dateEmprunt;
 	}
@@ -37,6 +41,7 @@ public class EmpruntEnCours {
 
 	public void setEmprunteur(Utilisateur emprunteur) {
 		this.emprunteur = emprunteur;
+		setDateEmprunt(new Date());
 	}
 
 	public Exemplaire getExemplaire() {
@@ -44,13 +49,17 @@ public class EmpruntEnCours {
 	}
 
 	public void setExemplaire(Exemplaire exemplaire) {
-		this.exemplaire = exemplaire;
+		if (exemplaire != null){
+			this.exemplaire = exemplaire;
+			exemplaire.setEmprunt(this);
+		}
+		
 	}
 
 	@Override
 	public String toString() {
-		return "EmpruntEnCours [dateEmprunt=" + dateEmprunt + ", emprunteur="
-				+ emprunteur + ", exemplaire=" + exemplaire + "]";
+				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
+					+ emprunteur + ", examplaire=" + exemplaire + "]";
 	}
 
 }

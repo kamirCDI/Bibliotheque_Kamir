@@ -22,6 +22,10 @@ public class Employe extends Utilisateur{
 		setCategorieEmploye(categorieEmploye);
 	}
 	
+	/*public Employe(){
+		
+	}*/
+	
 	public String getCodeMatricule() {
 		return codeMatricule;
 	}
