@@ -50,12 +50,23 @@ public class TestEmpruntEnCours {
 
 	
 /********************************************realiser un prêt en cours*****************************************************/
+	System.out.println("***************************Réaliser un prêt**************************************");
 	exemplaire1.getEmprunt().setEmprunteur(adherent1);
 	exemplaire1.getEmprunt().setExemplaire(exemplaire1);
-	System.out.println(exemplaire1.getEmprunt());
+	System.out.println("Afficher l'emprunt en cours de l'adherent1");
+	System.out.println("---------------"+exemplaire1.getEmprunt());
+	System.out.println("Afficher l'adherent1");
+	System.out.println("----------------"+exemplaire1.getEmprunt().getEmprunteur().getNom());
+	System.out.println("Afficher exemplaire1 emprunté");
+	System.out.println("----------------"+exemplaire1);
 	System.out.println();
-	//System.out.println(exemplaire1);
+	System.out.println();
 	
+/*****************************************rendre le livre*******************************************************************/	
+	/*	exemplaire1.getEmprunt().setEmprunteur(null);
+		exemplaire1.getEmprunt().setExemplaire(null);
+		System.out.println(exemplaire1.getEmprunt());
+	*/
 	
 	
 	}
