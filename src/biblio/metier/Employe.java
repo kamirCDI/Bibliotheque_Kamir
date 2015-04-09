@@ -3,6 +3,7 @@
  */
 package biblio.metier;
 
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -15,7 +16,7 @@ public class Employe extends Utilisateur{
 	private EnumCategorieEmploye categorieEmploye;
 	
 
-	public Employe(String nom, String prenom, Date dateNaissance, String sexe, int id, String pwd, String pseudonyme, String codeMatricule, EnumCategorieEmploye categorieEmploye){
+	public Employe(String nom, String prenom, Date dateNaissance, String sexe, int id, String pwd, String pseudonyme, String codeMatricule, EnumCategorieEmploye categorieEmploye) throws ParseException{
 		super(nom, prenom, dateNaissance, sexe, id, pwd, pseudonyme);
 		setCodeMatricule(codeMatricule);
 		setCategorieEmploye(categorieEmploye);

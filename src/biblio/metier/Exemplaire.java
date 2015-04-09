@@ -1,5 +1,7 @@
 package biblio.metier;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,16 +9,21 @@ public class Exemplaire {
 	
 	private int idExemplaire;
 	private Date dateAchat;
-	private EnumStatusExemplaire status;
+	private EnumStatusExemplaire status= EnumStatusExemplaire.DISPONIBLE;
 	private String isbn;
+	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 	
-/*******************************constructeur*******************************************/
+/*******************************constructeur***********************************************/
 	
-	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn){
+	public Exemplaire(int id, Date dateAchat, String isbn){
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
+	}
+	
+	public Exemplaire() throws ParseException{
+		this(1, sdf.parse("10/02/2000"), "IN12345");
 	}
 	
 /**********************************Getters et Setters****************************************/	
@@ -56,7 +63,7 @@ public class Exemplaire {
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-				+ dateAchat + ", status=" + status + ", isbn=" + isbn + "]";
+				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
 	}
 
 /****************************Un exemplaire tient des prêts en cours******************************/	
