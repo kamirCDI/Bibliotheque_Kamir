@@ -3,6 +3,7 @@
  */
 package biblio.metier;
 
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ public class Adherent extends Utilisateur{
 	private static int dureeMaxPrets=15;
 	
 	
-	public Adherent(String nom, String prenom, Date dateNaissance, String sexe, int id, String pwd, String pseudonyme, String telephone){
+	public Adherent(String nom, String prenom, Date dateNaissance, String sexe, int id, String pwd, String pseudonyme, String telephone) throws ParseException{
 		super(nom, prenom, dateNaissance, sexe, id, pwd, pseudonyme);
 		setTelephone(telephone);
 	}
