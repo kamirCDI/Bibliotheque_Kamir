@@ -1,5 +1,6 @@
 package biblio.metier;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,29 +9,39 @@ public class Exemplaire {
 	
 	private int idExemplaire;
 	private Date dateAchat;
-	private EnumStatusExemplaire status;
+	private EnumStatusExemplaire status= EnumStatusExemplaire.DISPONIBLE;
 	private String isbn;
-	private EmpruntEnCours empruntEnCours;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-	static {sdf.setLenient(false);}
 	
+<<<<<<< HEAD
 /*******************************constructeur
  * @throws BiblioException *******************************************/
+=======
+/*******************************constructeur***********************************************/
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 	
+<<<<<<< HEAD
 	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn) throws BiblioException{
+=======
+	public Exemplaire(int id, Date dateAchat, String isbn){
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
-		setEmpruntEnCours(null);
 	}
 	
+<<<<<<< HEAD
 	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
 		setEmpruntEnCours(empruntEnCours);
+=======
+	public Exemplaire() throws ParseException{
+		this(1, sdf.parse("10/02/2000"), "IN12345");
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 	}
 	
 	public Exemplaire() {
@@ -69,6 +80,7 @@ public class Exemplaire {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+<<<<<<< HEAD
 	
 	public EmpruntEnCours getEmpruntEnCours() {
 		return empruntEnCours;
@@ -86,13 +98,19 @@ public class Exemplaire {
 			}
 		}
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
+<<<<<<< HEAD
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn
 				+ ", empruntEnCours=" + empruntEnCours + "]";
+=======
+				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 	}
 
 /****************************Un exemplaire tient des prêts en cours******************************/	
@@ -103,7 +121,10 @@ public class Exemplaire {
 		private Utilisateur emprunteur;
 		private Exemplaire exemplaire;
 		
+<<<<<<< HEAD
 		*//*******remarque***********************//*
+=======
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 		
 		public Date getDateEmprunt() {
 			return dateEmprunt;
@@ -124,5 +145,9 @@ public class Exemplaire {
 			this.exemplaire = exemplaire;
 		}
 	}*/
+
+	
+	
+	
 
 }
