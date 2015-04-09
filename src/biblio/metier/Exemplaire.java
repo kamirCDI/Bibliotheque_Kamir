@@ -11,7 +11,7 @@ public class Exemplaire {
 	private Date dateAchat;
 	private EnumStatusExemplaire status;
 	private String isbn;
-	private EmpruntEnCours empruntEnCours;
+	private EmpruntEnCours emprunt;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 	
 
@@ -41,7 +41,7 @@ public class Exemplaire {
 	
 	public Exemplaire()
 	{
-		this.empruntEnCours=new EmpruntEnCours();
+		this.emprunt=new EmpruntEnCours();
 	}
 	
 
@@ -97,7 +97,7 @@ public class Exemplaire {
 	}*/
 	
 	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours){
-		this.empruntEnCours = empruntEnCours;
+		this.emprunt= empruntEnCours;
 	}
 
 	
@@ -107,8 +107,7 @@ public class Exemplaire {
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
 
-				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn
-				+ ", empruntEnCours=" + empruntEnCours + "]"
+		
 
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
 
@@ -118,15 +117,14 @@ public class Exemplaire {
 	
 
 
-	private static class EmpruntEnCours{
+	/*private static class EmpruntEnCours{
 
 		
 		private Date dateEmprunt;
 		private Utilisateur emprunteur;
-		private Exemplaire exemplaire;
+		private Exemplaire exemplaire;*/
 		
 
-		/*******remarque***********************/
 
 		
 	/*******************************Getteres et Setters**********************************************/	
@@ -162,12 +160,7 @@ public class Exemplaire {
 
 		}
 		
-		@Override
-		public String toString() {
-			return "EmpruntEnCours [dateEmprunt=" + dateEmprunt
-					+ ", emprunteur=" + emprunteur + ", exemplaire="
-					+ exemplaire + "]";
-		}
+
 	}
 
 	
