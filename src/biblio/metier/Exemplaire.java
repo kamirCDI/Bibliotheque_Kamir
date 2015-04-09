@@ -14,9 +14,10 @@ public class Exemplaire {
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 	static {sdf.setLenient(false);}
 	
-/*******************************constructeur*******************************************/
+/*******************************constructeur
+ * @throws BiblioException *******************************************/
 	
-	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn){
+	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
@@ -24,7 +25,7 @@ public class Exemplaire {
 		setEmpruntEnCours(null);
 	}
 	
-	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours){
+	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
@@ -32,6 +33,10 @@ public class Exemplaire {
 		setEmpruntEnCours(empruntEnCours);
 	}
 	
+	public Exemplaire() {
+		
+	}
+
 /**********************************Getters et Setters****************************************/	
 	public int getIdExemplaire() {
 		return idExemplaire;
@@ -69,27 +74,36 @@ public class Exemplaire {
 		return empruntEnCours;
 	}
 
-	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) {
-		this.empruntEnCours = empruntEnCours;
+	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) throws BiblioException{
+		if(empruntEnCours==null)
+			this.empruntEnCours = empruntEnCours;
+		else
+		{
+			if(empruntEnCours != this.empruntEnCours)
+			{
+				this.empruntEnCours=empruntEnCours;
+				this.empruntEnCours.setExemplaire(this);
+			}
+		}
 	}
 
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-				+ dateAchat + ", status=" + status + ", isbn=" + isbn
+				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn
 				+ ", empruntEnCours=" + empruntEnCours + "]";
 	}
 
 /****************************Un exemplaire tient des prêts en cours******************************/	
 	
-	private static class EmpruntEnCours{
+/*	private static class EmpruntEnCours{
 		
 		private Date dateEmprunt;
 		private Utilisateur emprunteur;
 		private Exemplaire exemplaire;
 		
-		/*******remarque***********************/
+		*//*******remarque***********************//*
 		
 		public Date getDateEmprunt() {
 			return dateEmprunt;
@@ -109,6 +123,6 @@ public class Exemplaire {
 		public void setExemplaire(Exemplaire exemplaire) {
 			this.exemplaire = exemplaire;
 		}
-	}
+	}*/
 
 }

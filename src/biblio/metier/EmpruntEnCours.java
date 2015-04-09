@@ -11,16 +11,20 @@ public class EmpruntEnCours {
 	static {sdf.setLenient(false);}
 
 	
-	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur,	Exemplaire exemplaire) {
+	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur,	Exemplaire exemplaire) throws BiblioException {
 		setDateEmprunt(dateEmprunt);
 		setEmprunteur(emprunteur);
 		setExemplaire(exemplaire);
 	}
 	
-	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur) {
+	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur) throws BiblioException {
 		setDateEmprunt(dateEmprunt);
 		setEmprunteur(emprunteur);
 		setExemplaire(null);
+	}
+
+	public EmpruntEnCours() {
+		
 	}
 
 	public Date getDateEmprunt() {
@@ -28,7 +32,8 @@ public class EmpruntEnCours {
 	}
 
 	public void setDateEmprunt(Date dateEmprunt) {
-		this.dateEmprunt = dateEmprunt;
+		if(dateEmprunt!=null)
+			this.dateEmprunt = dateEmprunt;
 	}
 
 	public Utilisateur getEmprunteur() {
@@ -43,13 +48,28 @@ public class EmpruntEnCours {
 		return exemplaire;
 	}
 
-	public void setExemplaire(Exemplaire exemplaire) {
+	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
+		if(exemplaire==null)
+		{
+			this.exemplaire=exemplaire;
+			this.setDateEmprunt(null);
+		}
+		
+		else
+		{
+			if(exemplaire != this.exemplaire)
+			{
+				this.exemplaire=exemplaire;
+				this.exemplaire.setEmpruntEnCours(this);
+			}
+		}
+		
 		this.exemplaire = exemplaire;
 	}
 
 	@Override
 	public String toString() {
-		return "EmpruntEnCours [dateEmprunt=" + dateEmprunt + ", emprunteur="
+		return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
 				+ emprunteur + ", exemplaire=" + exemplaire + "]";
 	}
 
