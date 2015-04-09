@@ -38,7 +38,10 @@ public class Adherent extends Utilisateur{
 
 	/********************************classes métier*********************************************/
 	public Boolean isConditionsPretAcceptees(){
-		return true;
+		if(getNbEmpruntsEnCours()>3)
+			return false;
+		else	
+			return true;
 	}
 	
 	public int getNbRetards(){
