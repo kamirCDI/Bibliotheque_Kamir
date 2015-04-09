@@ -23,7 +23,7 @@ public class Personne {
 	private Date dateNaissance;
 	private String sexe;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
-	//static {sdf.setLenient(false);}
+	static {sdf.setLenient(false);}
 	
 /*****************Constructeur*******************************************************/
 	public Personne(String nom, String prenom, Date datedNaissance, String sexe){

@@ -1,11 +1,27 @@
 package biblio.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class EmpruntEnCours {
 	private Date dateEmprunt;
 	private Utilisateur emprunteur;
 	private Exemplaire exemplaire;
+	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	static {sdf.setLenient(false);}
+
+	
+	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur,	Exemplaire exemplaire) {
+		setDateEmprunt(dateEmprunt);
+		setEmprunteur(emprunteur);
+		setExemplaire(exemplaire);
+	}
+	
+	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur) {
+		setDateEmprunt(dateEmprunt);
+		setEmprunteur(emprunteur);
+		setExemplaire(null);
+	}
 
 	public Date getDateEmprunt() {
 		return dateEmprunt;
@@ -29,6 +45,12 @@ public class EmpruntEnCours {
 
 	public void setExemplaire(Exemplaire exemplaire) {
 		this.exemplaire = exemplaire;
+	}
+
+	@Override
+	public String toString() {
+		return "EmpruntEnCours [dateEmprunt=" + dateEmprunt + ", emprunteur="
+				+ emprunteur + ", exemplaire=" + exemplaire + "]";
 	}
 
 }

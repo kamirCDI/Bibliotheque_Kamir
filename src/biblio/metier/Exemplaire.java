@@ -1,5 +1,6 @@
 package biblio.metier;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -9,6 +10,9 @@ public class Exemplaire {
 	private Date dateAchat;
 	private EnumStatusExemplaire status;
 	private String isbn;
+	private EmpruntEnCours empruntEnCours;
+	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
+	static {sdf.setLenient(false);}
 	
 /*******************************constructeur*******************************************/
 	
@@ -17,6 +21,15 @@ public class Exemplaire {
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
+		setEmpruntEnCours(null);
+	}
+	
+	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours){
+		setIdExemplaire(id);
+		setDateAchat(dateAchat);
+		setStatus(status);
+		setIsbn(isbn);
+		setEmpruntEnCours(empruntEnCours);
 	}
 	
 /**********************************Getters et Setters****************************************/	
@@ -51,12 +64,21 @@ public class Exemplaire {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+	
+	public EmpruntEnCours getEmpruntEnCours() {
+		return empruntEnCours;
+	}
+
+	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) {
+		this.empruntEnCours = empruntEnCours;
+	}
 
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-				+ dateAchat + ", status=" + status + ", isbn=" + isbn + "]";
+				+ dateAchat + ", status=" + status + ", isbn=" + isbn
+				+ ", empruntEnCours=" + empruntEnCours + "]";
 	}
 
 /****************************Un exemplaire tient des prêts en cours******************************/	
@@ -88,9 +110,5 @@ public class Exemplaire {
 			this.exemplaire = exemplaire;
 		}
 	}
-
-	
-	
-	
 
 }
