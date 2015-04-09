@@ -26,7 +26,7 @@ public class Personne {
 	static {sdf.setLenient(false);}
 	
 /*****************Constructeur*******************************************************/
-	public Personne(String nom, String prenom, Date datedNaissance, String sexe){
+	public Personne(String nom, String prenom, Date dateNaissance, String sexe) throws ParseException{
 		setNom(nom);
 		setPrenom(prenom);
 		setDateNaissance(dateNaissance);
@@ -69,11 +69,13 @@ public class Personne {
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Personne [nom=" + nom + ", prenom=" + prenom + "]";
+		return "Personne [nom=" + nom + ", prenom=" + prenom
+				+ ", dateNaissance=" + sdf.format(dateNaissance) + ", sexe=" + sexe + "]";
 	}
+	
 	
 	
 }

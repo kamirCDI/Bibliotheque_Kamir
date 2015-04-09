@@ -1,5 +1,6 @@
 package biblio.metier;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,10 +16,16 @@ public class Utilisateur extends Personne {
 	private List<EmpruntEnCours> empruntEnCours = new ArrayList<EmpruntEnCours>();
 
 	public Utilisateur(String nom, String prenom, Date dateNaissance,
-			String sexe, int id, String pwd, String pseudonyme) {
+			String sexe, int id, String pwd, String pseudonyme) throws ParseException {
 		super(nom, prenom, dateNaissance, sexe);
+		setIdUtilisateur(id);
 		setPwd(pwd);
 		setPseudonyme(pseudonyme);
+	}
+	
+	public Utilisateur() throws ParseException{
+		this("Devanne", "jean", sdf.parse("02/05/1971"), "masculin", 2, "koukou", "coucou");
+		
 	}
 
 	/************************ Getters et Setters *******************************************************/
