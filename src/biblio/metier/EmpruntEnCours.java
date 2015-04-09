@@ -48,16 +48,8 @@ public class EmpruntEnCours {
 	public Exemplaire getExemplaire() {
 		return exemplaire;
 	}
+	
 
-/*	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
-		if(exemplaire==null)
-		{
-			this.exemplaire=exemplaire;
-			this.setDateEmprunt(null);
-		}
-		
-
-	}*/
 	
 	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
 		this.exemplaire=exemplaire;

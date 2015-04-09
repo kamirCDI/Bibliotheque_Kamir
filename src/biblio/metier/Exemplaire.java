@@ -39,9 +39,9 @@ public class Exemplaire {
 		this(1, sdf.parse("10/02/2000"),EnumStatusExemplaire.DISPONIBLE, "IN12345");
 	}*/
 	
-	public Exemplaire()
+	public Exemplaire() throws BiblioException
 	{
-		this.emprunt=new EmpruntEnCours();
+		this.emprunt= new EmpruntEnCours();
 	}
 	
 
@@ -161,7 +161,7 @@ public class Exemplaire {
 		}
 		
 
-	}
+	
 
 	
 	
