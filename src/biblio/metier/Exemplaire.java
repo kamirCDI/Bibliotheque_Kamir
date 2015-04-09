@@ -9,7 +9,7 @@ public class Exemplaire {
 	
 	private int idExemplaire;
 	private Date dateAchat;
-	private EnumStatusExemplaire status;
+	private EnumStatusExemplaire status =  EnumStatusExemplaire.DISPONIBLE;
 	private String isbn;
 	private EmpruntEnCours emprunt;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
@@ -19,29 +19,17 @@ public class Exemplaire {
 
 	
 
-	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn) throws BiblioException{
-
+	public Exemplaire(int id, Date dateAchat, String isbn) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
-		setIsbn(isbn);		
-	}
-	
-
-	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours) throws BiblioException{
-		setIdExemplaire(id);
-		setDateAchat(dateAchat);
-		setStatus(status);
-		setIsbn(isbn);
-		setEmpruntEnCours(empruntEnCours);
+		setIsbn(isbn);	
+		emprunt = new EmpruntEnCours();
 	}
 
-/*	public Exemplaire() throws ParseException, BiblioException{
-		this(1, sdf.parse("10/02/2000"),EnumStatusExemplaire.DISPONIBLE, "IN12345");
-	}*/
 	
-	public Exemplaire() throws BiblioException
+	public Exemplaire() throws BiblioException, ParseException
 	{
-		this.emprunt= new EmpruntEnCours();
+		this(1, sdf.parse("15/02/2000"), "1MJ23");
 	}
 	
 
@@ -82,22 +70,11 @@ public class Exemplaire {
 	public EmpruntEnCours getEmprunt() {
 		return emprunt;
 	}
-
-/*	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) throws BiblioException{
-		if(empruntEnCours==null)
-			this.empruntEnCours = empruntEnCours;
-		else
-		{
-			if(empruntEnCours != this.empruntEnCours)
-			{
-				this.empruntEnCours=empruntEnCours;
-				this.empruntEnCours.setExemplaire(this);
-			}
-		}
-	}*/
 	
 	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours){
-		this.emprunt= empruntEnCours;
+			this.emprunt= empruntEnCours;
+			setStatus(EnumStatusExemplaire.PRETE);
+		
 	}
 
 	
@@ -106,9 +83,6 @@ public class Exemplaire {
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-
-		
-
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
 
 	}

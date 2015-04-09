@@ -52,7 +52,8 @@ public class EmpruntEnCours {
 
 	
 	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
-		this.exemplaire=exemplaire;
+			this.exemplaire=exemplaire;
+			exemplaire.setEmpruntEnCours(this);
 	}
 
 	@Override
