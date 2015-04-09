@@ -55,6 +55,15 @@ public class EmpruntEnCours {
 			this.exemplaire=exemplaire;
 			exemplaire.setEmpruntEnCours(this);
 	}
+	
+	public void addUtilisateur(Utilisateur emprunteur)
+	{
+		if(emprunteur!=null)
+		{
+			emprunteur.getEmpruntEnCours().add(this);
+			this.emprunteur=emprunteur;
+		}
+	}
 
 	@Override
 	public String toString() {
