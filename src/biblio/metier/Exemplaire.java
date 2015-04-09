@@ -23,8 +23,7 @@ public class Exemplaire {
 
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
-		setStatus(status);
-		setIsbn(isbn);
+		setIsbn(isbn);		
 	}
 	
 
@@ -80,8 +79,8 @@ public class Exemplaire {
 	}
 
 	
-	public EmpruntEnCours getEmpruntEnCours() {
-		return empruntEnCours;
+	public EmpruntEnCours getEmprunt() {
+		return emprunt;
 	}
 
 /*	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) throws BiblioException{
@@ -101,6 +100,8 @@ public class Exemplaire {
 		this.empruntEnCours = empruntEnCours;
 	}
 
+	
+
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
@@ -113,9 +114,12 @@ public class Exemplaire {
 
 	}
 
-/****************************Un exemplaire tient des prêts en cours******************************/	
+/****************************Un exemplaire tient 0 ou un prêt en cours******************************/	
 	
+
+
 	private static class EmpruntEnCours{
+
 		
 		private Date dateEmprunt;
 		private Utilisateur emprunteur;
@@ -125,7 +129,8 @@ public class Exemplaire {
 		/*******remarque***********************/
 
 		
-		public Date getDateEmprunt() {
+	/*******************************Getteres et Setters**********************************************/	
+		/*public Date getDateEmprunt() {
 			return dateEmprunt;
 		}
 		public void setDateEmprunt(Date dateEmprunt) {
@@ -142,6 +147,19 @@ public class Exemplaire {
 		}
 		public void setExemplaire(Exemplaire exemplaire) {
 			this.exemplaire = exemplaire;
+
+		}*/
+		/***********************************toString()**********************************************/
+		/*@Override
+		public String toString() {
+			return "EmpruntEnCours [dateEmprunt=" + dateEmprunt
+					+ ", emprunteur=" + emprunteur + ", exemplaire="
+					+ exemplaire + "]";
+		}*/
+		
+	
+	
+
 		}
 		
 		@Override
@@ -156,4 +174,4 @@ public class Exemplaire {
 	
 	
 
-}
+

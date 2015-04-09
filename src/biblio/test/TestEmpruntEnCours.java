@@ -8,7 +8,7 @@ import biblio.metier.*;
 
 public class TestEmpruntEnCours {
 
-	public static void main(String[] args) throws ParseException { 
+	public static void main(String[] args) throws ParseException, BiblioException { 
 		
 		
 /**********************************Instanciation de la classe Personne, Utilisateur, Adherent, Employe****************************************************************/
@@ -30,14 +30,33 @@ public class TestEmpruntEnCours {
 		System.out.println();
 		System.out.println();
 		
-/****************************************Instanciation d'un exemplaire*************************************************************/
-		
-		System.out.println("***************************creation d'un exemplaire****************************");
+/***********************************************creation d'un adherent*******************************************************************/
+		System.out.println("***************************creation d'un adhérent****************************");
 		System.out.println();		
-		Exemplaire exemplaire1 = new Exemplaire();
-		System.out.println(exemplaire1);
-		
-/***********************************************creation d'un adherent*******************************************************************/	
-	}
+		Adherent adherent1 = new Adherent();
+		System.out.println(adherent1);
 
+	
+	
+/****************************************Instanciation d'un exemplaire*************************************************************/
+	
+	System.out.println("***************************creation d'un exemplaire****************************");
+	System.out.println();		
+	Exemplaire exemplaire1 = new Exemplaire();
+	System.out.println(exemplaire1);
+	System.out.println();
+	System.out.println();
+	
+
+	
+/********************************************realiser un prêt en cours*****************************************************/
+	exemplaire1.getEmprunt().setEmprunteur(adherent1);
+	exemplaire1.getEmprunt().setExemplaire(exemplaire1);
+	System.out.println(exemplaire1.getEmprunt());
+	System.out.println();
+	//System.out.println(exemplaire1);
+	
+	
+	
+	}
 }
