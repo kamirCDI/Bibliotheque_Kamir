@@ -9,44 +9,42 @@ public class Exemplaire {
 	
 	private int idExemplaire;
 	private Date dateAchat;
-	private EnumStatusExemplaire status= EnumStatusExemplaire.DISPONIBLE;
+	private EnumStatusExemplaire status;
 	private String isbn;
+	private EmpruntEnCours empruntEnCours;
 	public static SimpleDateFormat sdf=new SimpleDateFormat("dd/MM/yyyy");
 	
-<<<<<<< HEAD
-/*******************************constructeur
- * @throws BiblioException *******************************************/
-=======
+
 /*******************************constructeur***********************************************/
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
+
 	
-<<<<<<< HEAD
+
 	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn) throws BiblioException{
-=======
-	public Exemplaire(int id, Date dateAchat, String isbn){
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
+
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
 	}
 	
-<<<<<<< HEAD
+
 	public Exemplaire(int id, Date dateAchat, EnumStatusExemplaire status, String isbn, EmpruntEnCours empruntEnCours) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
 		setStatus(status);
 		setIsbn(isbn);
 		setEmpruntEnCours(empruntEnCours);
-=======
-	public Exemplaire() throws ParseException{
-		this(1, sdf.parse("10/02/2000"), "IN12345");
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
+	}
+
+/*	public Exemplaire() throws ParseException, BiblioException{
+		this(1, sdf.parse("10/02/2000"),EnumStatusExemplaire.DISPONIBLE, "IN12345");
+	}*/
+	
+	public Exemplaire()
+	{
+		this.empruntEnCours=new EmpruntEnCours();
 	}
 	
-	public Exemplaire() {
-		
-	}
 
 /**********************************Getters et Setters****************************************/	
 	public int getIdExemplaire() {
@@ -80,13 +78,13 @@ public class Exemplaire {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-<<<<<<< HEAD
+
 	
 	public EmpruntEnCours getEmpruntEnCours() {
 		return empruntEnCours;
 	}
 
-	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) throws BiblioException{
+/*	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours) throws BiblioException{
 		if(empruntEnCours==null)
 			this.empruntEnCours = empruntEnCours;
 		else
@@ -97,34 +95,35 @@ public class Exemplaire {
 				this.empruntEnCours.setExemplaire(this);
 			}
 		}
+	}*/
+	
+	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours){
+		this.empruntEnCours = empruntEnCours;
 	}
-=======
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
 
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
 		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
-<<<<<<< HEAD
+
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn
-				+ ", empruntEnCours=" + empruntEnCours + "]";
-=======
+				+ ", empruntEnCours=" + empruntEnCours + "]"
+
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
+
 	}
 
 /****************************Un exemplaire tient des prêts en cours******************************/	
 	
-/*	private static class EmpruntEnCours{
+	private static class EmpruntEnCours{
 		
 		private Date dateEmprunt;
 		private Utilisateur emprunteur;
 		private Exemplaire exemplaire;
 		
-<<<<<<< HEAD
-		*//*******remarque***********************//*
-=======
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir.git
+
+		/*******remarque***********************/
+
 		
 		public Date getDateEmprunt() {
 			return dateEmprunt;
@@ -144,7 +143,14 @@ public class Exemplaire {
 		public void setExemplaire(Exemplaire exemplaire) {
 			this.exemplaire = exemplaire;
 		}
-	}*/
+		
+		@Override
+		public String toString() {
+			return "EmpruntEnCours [dateEmprunt=" + dateEmprunt
+					+ ", emprunteur=" + emprunteur + ", exemplaire="
+					+ exemplaire + "]";
+		}
+	}
 
 	
 	

@@ -14,6 +14,7 @@ public class TestLivre {
 		Utilisateur u1=new Utilisateur("PAUL","Jean",Utilisateur.sdf.parse("19/06/1999"),"Homme",12,"eau","voiture");
 		Exemplaire e1=new Exemplaire();
 		EmpruntEnCours ec=new EmpruntEnCours();
+		
 		try {
 			e1 = new Exemplaire(9,Exemplaire.sdf.parse("12/01/2000"),EnumStatusExemplaire.DISPONIBLE,"44568878");
 		} catch (BiblioException e) {
@@ -24,16 +25,18 @@ public class TestLivre {
 		} catch (BiblioException e) {
 			System.out.println(e);
 		}
+		
 		try {
 			e1.setEmpruntEnCours(ec);
 		} catch (BiblioException e) {
 			System.out.println(e);
 		}
-		try {
+/*		try {
 			ec.setExemplaire(e1);
 		} catch (BiblioException e) {
 			System.out.println(e);
-		}
+		}*/
+		
 		System.out.println("e1: "+e1);
 		System.out.println("ec: "+ec);
 		
