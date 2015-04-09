@@ -20,7 +20,6 @@ public class EmpruntEnCours {
 	public EmpruntEnCours(Date dateEmprunt, Utilisateur emprunteur) throws BiblioException {
 		setDateEmprunt(dateEmprunt);
 		setEmprunteur(emprunteur);
-		setExemplaire(null);
 	}
 
 	public EmpruntEnCours() {
@@ -48,7 +47,7 @@ public class EmpruntEnCours {
 		return exemplaire;
 	}
 
-	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
+/*	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
 		if(exemplaire==null)
 		{
 			this.exemplaire=exemplaire;
@@ -65,6 +64,10 @@ public class EmpruntEnCours {
 		}
 		
 		this.exemplaire = exemplaire;
+	}*/
+	
+	public void setExemplaire(Exemplaire exemplaire) throws BiblioException {
+		this.exemplaire=exemplaire;
 	}
 
 	@Override
