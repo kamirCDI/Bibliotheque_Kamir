@@ -75,12 +75,7 @@ public class EmpruntEnCours {
 	@Override
 	public String toString() {
 				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
-<<<<<<< HEAD
 					+ emprunteur.getNom() + ", examplaire=" + exemplaire.getIdExemplaire() + "]";
-=======
-					+ emprunteur + ", examplaire=" + exemplaire + "]\n";
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
-
 	}
 
 }

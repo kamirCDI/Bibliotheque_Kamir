@@ -4,7 +4,10 @@
 package biblio.metier;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 /**
  * @author afpa
@@ -47,7 +50,23 @@ public class Adherent extends Utilisateur{
 	}
 	
 	public int getNbRetards(){
-		return 0;
+		int nb=0;
+		for(EmpruntEnCours s:getEmpruntEnCours())
+			if(s.isPretEnRetard())
+				nb++;
+		return nb;
+	}
+	
+	public boolean isPretEnRetard() {
+
+		// Instanciation � la date du jour et configuration Timezone et locale
+		Calendar cl = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
+		// Soustraction de la dur�e max de pret
+		cl.add(Calendar.DAY_OF_YEAR, -dureeMaxPrets);
+		// Determine la date mini sans retard
+		Date dateMinSansRetard = cl.getTime();
+
+		return emprunt.getDateEmprunt().before(dateMinSansRetard);
 	}
 	
 	@Override
