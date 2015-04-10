@@ -47,68 +47,47 @@ public class TestEmpruntEnCours {
 	Exemplaire exemplaire3 = new Exemplaire();
 	Exemplaire exemplaire4 = new Exemplaire();
 	System.out.println(exemplaire1);
-	//System.out.println(exemplaire2);
 	System.out.println();
 	System.out.println();
 	
 
 	
-/********************************************realiser un prêt en cours*****************************************************/
-<<<<<<< HEAD
-	System.out.println("***************************Réaliser un prêt**************************************");
-=======
-	System.out.println("***************************realiser un prêt en cours****************************");
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
+/********************************************realiser des prêt en cours*****************************************************/
+	System.out.println("***************************Réaliser des prêts**************************************");
+
 	exemplaire1.getEmprunt().setEmprunteur(adherent1);
 	exemplaire1.getEmprunt().setExemplaire(exemplaire1);
-<<<<<<< HEAD
-	System.out.println("Afficher l'emprunt en cours de l'adherent1");
-	System.out.println("---------------"+exemplaire1.getEmprunt());
-	System.out.println("Afficher l'adherent1");
-	System.out.println("----------------"+exemplaire1.getEmprunt().getEmprunteur().getNom());
-	System.out.println("Afficher exemplaire1 emprunté");
-	System.out.println("----------------"+exemplaire1);
-=======
+	
 	exemplaire2.getEmprunt().setEmprunteur(adherent1);
 	exemplaire2.getEmprunt().setExemplaire(exemplaire2);
+	
 	exemplaire3.getEmprunt().setEmprunteur(adherent1);
 	exemplaire3.getEmprunt().setExemplaire(exemplaire3);
-	exemplaire4.getEmprunt().setEmprunteur(adherent1);
-	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
-	System.out.println(exemplaire1.getEmprunt());
-	System.out.println(exemplaire2.getEmprunt());
-	System.out.println(exemplaire3.getEmprunt());
-	System.out.println(exemplaire4.getEmprunt());
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
+	
+	System.out.println(exemplaire1);
+	System.out.println(exemplaire2);
+	System.out.println(exemplaire3);
 	System.out.println();
-<<<<<<< HEAD
 	System.out.println();
-=======
-	//System.out.println(exemplaire1);
+
 
 /********************************************connaître le nombre d'emprunts*****************************************************/
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
 	
-<<<<<<< HEAD
-/*****************************************rendre le livre*******************************************************************/	
-	/*	exemplaire1.getEmprunt().setEmprunteur(null);
-		exemplaire1.getEmprunt().setExemplaire(null);
-		System.out.println(exemplaire1.getEmprunt());
-	*/
-	
-	
-=======
 	System.out.println("***************************connaître le nombre d'emprunts****************************");
+	System.out.println();
 	adherent1.addEmpruntEnCours(exemplaire1.getEmprunt());
 	adherent1.addEmpruntEnCours(exemplaire2.getEmprunt());
 	adherent1.addEmpruntEnCours(exemplaire3.getEmprunt());
 	adherent1.addEmpruntEnCours(exemplaire4.getEmprunt());
-	System.out.println("Nombre d'emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getNbEmpruntsEnCours());
-	System.out.println("Liste des emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getEmpruntEnCours());
-	if(adherent1.isConditionsPretAcceptees()==false)
-		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets non acceptés");
-	else
-		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets acceptés");
->>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
-	}
+	System.out.printf("Nombre d'emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"):");
+	System.out.println(adherent1.getNbEmpruntsEnCours());
+	System.out.println("Liste des emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"):");
+	System.out.println(adherent1.getEmpruntEnCours());
+	
+/*****************************************réaliser un quatrième prêt**********************************************************/
+	adherent1.addEmpruntEnCours(exemplaire4.getEmprunt());
+	exemplaire4.getEmprunt().setEmprunteur(adherent1);
+	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
+	
+}
 }

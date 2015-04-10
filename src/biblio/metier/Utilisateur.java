@@ -74,7 +74,7 @@ public class Utilisateur extends Personne {
 		this.empruntEnCours = empruntEnCours;
 	}
 	
-	public void addEmpruntEnCours(EmpruntEnCours unEmpruntEnCours)
+	public void addEmpruntEnCours(EmpruntEnCours unEmpruntEnCours) throws BiblioException
 	{
 		if(empruntEnCours.contains(unEmpruntEnCours)==false)
 		{
