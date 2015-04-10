@@ -58,13 +58,32 @@ public class Utilisateur extends Personne {
 		return super.toString() + "Utilisateur [idUtilisateur=" + idUtilisateur
 				+ ", pwd=" + pwd + ", pseudonyme=" + pseudonyme + "]";
 	}
-
-	/***************************** classes métiers ****************************************************/
-
+	
 	public int getNbEmpruntsEnCours() {
 		int nb=0;
 		for(EmpruntEnCours s:empruntEnCours)
 			nb++;
 		return nb;
 	}
+
+	public List<EmpruntEnCours> getEmpruntEnCours() {
+		return empruntEnCours;
+	}
+
+	public void setEmpruntEnCours(List<EmpruntEnCours> empruntEnCours) {
+		this.empruntEnCours = empruntEnCours;
+	}
+	
+	public void addEmpruntEnCours(EmpruntEnCours unEmpruntEnCours)
+	{
+		if(empruntEnCours.contains(unEmpruntEnCours)==false)
+		{
+			empruntEnCours.add(unEmpruntEnCours);
+			unEmpruntEnCours.setEmprunteur(this);
+		}
+	}
+
+	/***************************** classes métiers ****************************************************/
+
+
 }

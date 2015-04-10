@@ -62,11 +62,24 @@ public class EmpruntEnCours {
 			else 
 				exemplaire.setEmpruntEnCours(null);
 	}
+	
+	public void addUtilisateur(Utilisateur emprunteur)
+	{
+		if(emprunteur!=null)
+		{
+			emprunteur.getEmpruntEnCours().add(this);
+			this.emprunteur=emprunteur;
+		}
+	}
 
 	@Override
 	public String toString() {
 				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
+<<<<<<< HEAD
 					+ emprunteur.getNom() + ", examplaire=" + exemplaire.getIdExemplaire() + "]";
+=======
+					+ emprunteur + ", examplaire=" + exemplaire + "]\n";
+>>>>>>> branch 'master' of https://github.com/kamirCDI/Bibliotheque_kamir
 
 	}
 
