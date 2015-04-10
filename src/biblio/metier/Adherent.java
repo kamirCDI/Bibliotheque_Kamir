@@ -43,7 +43,7 @@ public class Adherent extends Utilisateur{
 
 	/********************************classes métier*********************************************/
 	public Boolean isConditionsPretAcceptees(){
-		if(getNbEmpruntsEnCours()>=3)
+		if(getNbEmpruntsEnCours()>=3 || getNbRetards()!=0)
 			return false;
 		else	
 			return true;
@@ -54,26 +54,20 @@ public class Adherent extends Utilisateur{
 	public int getNbRetards(){
 		int nb=0;
 		for(EmpruntEnCours s:getEmpruntEnCours())
+		{
 			if(s.isPretEnRetard())
 				nb++;
+		}
 		return nb;
 	}
 	
-	public boolean isPretEnRetard() {
-
-		// Instanciation � la date du jour et configuration Timezone et locale
-		Calendar cl = Calendar.getInstance(TimeZone.getDefault(), Locale.getDefault());
-		// Soustraction de la dur�e max de pret
-		cl.add(Calendar.DAY_OF_YEAR, -dureeMaxPrets);
-		// Determine la date mini sans retard
-		Date dateMinSansRetard = cl.getTime();
-
-		return emprunt.getDateEmprunt().before(dateMinSansRetard);
-	}
 	
-	@Override
-	public String toString() {
-		return super.toString() + "Adherent [telephone=" + telephone + "]";
+	public static int getDureeMaxPrets() {
+		return dureeMaxPrets;
+	}
+
+	public static void setDureeMaxPrets(int dureeMaxPrets) {
+		Adherent.dureeMaxPrets = dureeMaxPrets;
 	}
 	
 	@Override
@@ -82,5 +76,12 @@ public class Adherent extends Utilisateur{
 			super.addEmpruntEnCours(unEmpruntEnCours);
 		else 
 			throw new BiblioException("Les conditions pour un nouveau prêt ne sont pas satisfaites");
+		
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Adherent [telephone=" + telephone + "]";
+	}
+
 }
