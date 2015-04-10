@@ -76,6 +76,8 @@ public class EmpruntEnCours {
 	public String toString() {
 				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
 					+ emprunteur.getNom() + ", examplaire=" + exemplaire.getIdExemplaire() + "]";
+
+				
 	}
 
 }

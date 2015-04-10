@@ -43,12 +43,14 @@ public class Adherent extends Utilisateur{
 
 	/********************************classes métier*********************************************/
 	public Boolean isConditionsPretAcceptees(){
-		if(getNbEmpruntsEnCours()>3)
+		if(getNbEmpruntsEnCours()>=3)
 			return false;
 		else	
 			return true;
 	}
 	
+	
+
 	public int getNbRetards(){
 		int nb=0;
 		for(EmpruntEnCours s:getEmpruntEnCours())
@@ -72,5 +74,13 @@ public class Adherent extends Utilisateur{
 	@Override
 	public String toString() {
 		return super.toString() + "Adherent [telephone=" + telephone + "]";
+	}
+	
+	@Override
+	public void addEmpruntEnCours(EmpruntEnCours unEmpruntEnCours) throws BiblioException {
+		if (isConditionsPretAcceptees())
+			super.addEmpruntEnCours(unEmpruntEnCours);
+		else 
+			throw new BiblioException("Les conditions pour un nouveau prêt ne sont pas satisfaites");
 	}
 }
