@@ -62,7 +62,10 @@ public class Utilisateur extends Personne {
 	public int getNbEmpruntsEnCours() {
 		int nb=0;
 		for(EmpruntEnCours s:empruntEnCours)
+		{
+			//System.out.println("info :"+s);
 			nb++;
+		}
 		return nb;
 	}
 
@@ -79,7 +82,7 @@ public class Utilisateur extends Personne {
 		if(empruntEnCours.contains(unEmpruntEnCours)==false)
 		{
 			empruntEnCours.add(unEmpruntEnCours);
-			unEmpruntEnCours.setEmprunteur(this);
+			//unEmpruntEnCours.setEmprunteur(this);
 		}
 	}
 

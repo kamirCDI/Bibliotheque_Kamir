@@ -64,20 +64,20 @@ public class TestEmpruntEnCours {
 	exemplaire1.getEmprunt().setExemplaire(exemplaire1);
 	System.out.println(exemplaire1.getEmprunt());
 	
-
-	
 	exemplaire2.getEmprunt().setEmprunteur(adherent1);
 	exemplaire2.getEmprunt().setExemplaire(exemplaire2);
 	System.out.println(exemplaire2.getEmprunt());
+	System.out.println(exemplaire2.getEmprunt().isPretEnRetard());
 	
+	
+	
+	exemplaire3.getEmprunt().setExemplaire(exemplaire3);
 	
 	exemplaire3.getEmprunt().setEmprunteur(adherent1);
-	exemplaire3.getEmprunt().setExemplaire(exemplaire3);
+	exemplaire3.getEmprunt().setDateEmprunt(Utilisateur.sdf.parse("21/03/1999"));
 	System.out.println(exemplaire3.getEmprunt());
+	System.out.println(exemplaire3.getEmprunt().isPretEnRetard());
 	
-	exemplaire4.getEmprunt().setEmprunteur(adherent1);
-	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
-	System.out.println(exemplaire4.getEmprunt());
 
 	System.out.println();
 
@@ -92,31 +92,28 @@ public class TestEmpruntEnCours {
 
 /********************************************connaître le nombre d'emprunts*****************************************************/
 	
-/********************************************connaître le nombre d'emprunts*****************************************************/
 	
 	System.out.println("***************************connaître le nombre d'emprunts****************************");
 	System.out.println();
 	adherent1.addEmpruntEnCours(exemplaire1.getEmprunt());
 	adherent1.addEmpruntEnCours(exemplaire2.getEmprunt());
 	adherent1.addEmpruntEnCours(exemplaire3.getEmprunt());
-	adherent1.addEmpruntEnCours(exemplaire4.getEmprunt());
-	System.out.println("Nombre d'emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getNbEmpruntsEnCours());
-	System.out.println("Liste des emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getEmpruntEnCours());
-	if(adherent1.isConditionsPretAcceptees()==false)
-		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets non acceptés");
-	else
-		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets acceptés");
-
-	}
+	
 	System.out.printf("Nombre d'emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"):");
 	System.out.println(adherent1.getNbEmpruntsEnCours());
 	System.out.println("Liste des emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"):");
 	System.out.println(adherent1.getEmpruntEnCours());
+	System.out.println();
 	
-/*****************************************réaliser un quatrième prêt**********************************************************/
+/*****************************************réaliser un quatrième prêt**********************************************************//*
+	System.out.println("***************************realiser un quatrieme pret*********************************");
 	adherent1.addEmpruntEnCours(exemplaire4.getEmprunt());
 	exemplaire4.getEmprunt().setEmprunteur(adherent1);
 	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
+*/
+/*****************************************connaitre le nombre de retards*****************************************************/
+	System.out.println("***************************connaitre le nombre de retards******************************");
+	System.out.println("Nombre de retards: "+adherent1.getNbRetards());
 	
 }
 }
