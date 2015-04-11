@@ -32,7 +32,6 @@ public class EmpruntEnCours {
 	}
 
 	public void setDateEmprunt(Date dateEmprunt) {
-		if(dateEmprunt!=null)
 			this.dateEmprunt = dateEmprunt;
 	}
 
@@ -67,7 +66,6 @@ public class EmpruntEnCours {
 
 	@Override
 	public String toString() {
-
 				return "EmpruntEnCours [dateEmprunt=" + sdf.format(dateEmprunt) + ", emprunteur="
 					+ emprunteur + ", examplaire=" + exemplaire + "]\n";
 
