@@ -71,8 +71,7 @@ public class Exemplaire {
 	
 	public void setEmpruntEnCours(EmpruntEnCours empruntEnCours){
 			this.emprunt= empruntEnCours;
-			setStatus(EnumStatusExemplaire.PRETE);
-		
+			setStatus(EnumStatusExemplaire.PRETE);		
 	}
 
 	
@@ -80,56 +79,13 @@ public class Exemplaire {
 /**************************toString***********************************************************/
 	@Override
 	public String toString() {
-		return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
+		if (emprunt.getEmprunteur() == null)
+			return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
 				+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + "]";
-
+		else
+			return "Exemplaire [idExemplaire=" + idExemplaire + ", dateAchat="
+			+ sdf.format(dateAchat) + ", status=" + status + ", isbn=" + isbn + ", emprunté par=" + emprunt.getEmprunteur().getNom() + "]";
 	}
-
-/****************************Un exemplaire tient 0 ou un prêt en cours******************************/	
-	
-
-
-	/*private static class EmpruntEnCours{
-
-		
-		private Date dateEmprunt;
-		private Utilisateur emprunteur;
-		private Exemplaire exemplaire;*/
-		
-
-
-		
-	/*******************************Getteres et Setters**********************************************/	
-		/*public Date getDateEmprunt() {
-			return dateEmprunt;
-		}
-		public void setDateEmprunt(Date dateEmprunt) {
-			this.dateEmprunt = dateEmprunt;
-		}
-		public Utilisateur getEmprunteur() {
-			return emprunteur;
-		}
-		public void setEmprunteur(Utilisateur emprunteur) {
-			this.emprunteur = emprunteur;
-		}
-		public Exemplaire getExemplaire() {
-			return exemplaire;
-		}
-		public void setExemplaire(Exemplaire exemplaire) {
-			this.exemplaire = exemplaire;
-
-		}*/
-		/***********************************toString()**********************************************/
-		/*@Override
-		public String toString() {
-			return "EmpruntEnCours [dateEmprunt=" + dateEmprunt
-					+ ", emprunteur=" + emprunteur + ", exemplaire="
-					+ exemplaire + "]";
-		}*/
-		
-	
-	
-
 		}
 		
 
