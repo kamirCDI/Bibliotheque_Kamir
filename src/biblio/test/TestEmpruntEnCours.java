@@ -11,16 +11,14 @@ public class TestEmpruntEnCours {
 	public static void main(String[] args) throws ParseException, BiblioException { 
 		
 		
-/**********************************Instanciation de la classe Personne, Utilisateur, Adherent, Employe****************************************************************/
-		
-                         /***************************Test classe Personne****************************************************************************/
+/**********************************Instanciation de la classe Personne, Utilisateur, Adherent, Employe**********************************************************
+                         /***************************Test classe Personne******************************************************/
 		System.out.println("******************************Test de la classe Personne******************************");
 		System.out.println();
 		Personne personne1 = new Personne();
 		System.out.println(personne1);
 		System.out.println();
 		System.out.println();
-		
 		
 		System.out.println("******************Test de la classe utilisateur**************************");
 		System.out.println();
@@ -72,21 +70,30 @@ public class TestEmpruntEnCours {
 	
 	
 	exemplaire3.getEmprunt().setExemplaire(exemplaire3);
+
 	
 	exemplaire3.getEmprunt().setEmprunteur(adherent1);
+
 	exemplaire3.getEmprunt().setDateEmprunt(Utilisateur.sdf.parse("21/03/1999"));
 	System.out.println(exemplaire3.getEmprunt());
 	System.out.println(exemplaire3.getEmprunt().isPretEnRetard());
+
+	exemplaire3.getEmprunt().setExemplaire(exemplaire3);
+
 	
+
 
 	System.out.println();
 
-	
-	System.out.println(exemplaire1);
-	System.out.println(exemplaire2);
-	System.out.println(exemplaire3);
-	System.out.println();
 
+	exemplaire4.getEmprunt().setEmprunteur(adherent1);
+	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
+
+	
+	System.out.println("emprunt1 de l'adherent1 " + exemplaire1.getEmprunt());
+	System.out.println("emprunt2 de l'adherent1 " + exemplaire2.getEmprunt());
+	System.out.println("emprunt3 de l'adherent1 "+exemplaire3.getEmprunt());
+	System.out.println("emprunt4 de l'adherent1 " + exemplaire4.getEmprunt());
 	System.out.println();
 
 
@@ -105,15 +112,26 @@ public class TestEmpruntEnCours {
 	System.out.println(adherent1.getEmpruntEnCours());
 	System.out.println();
 	
-/*****************************************réaliser un quatrième prêt**********************************************************//*
+/*****************************************réaliser un quatrième prêt**********************************************************/
 	System.out.println("***************************realiser un quatrieme pret*********************************");
 	adherent1.addEmpruntEnCours(exemplaire4.getEmprunt());
+
 	exemplaire4.getEmprunt().setEmprunteur(adherent1);
 	exemplaire4.getEmprunt().setExemplaire(exemplaire4);
-*/
+
 /*****************************************connaitre le nombre de retards*****************************************************/
 	System.out.println("***************************connaitre le nombre de retards******************************");
 	System.out.println("Nombre de retards: "+adherent1.getNbRetards());
 	
-}
+	System.out.println("Nombre d'emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getNbEmpruntsEnCours());
+	System.out.println();
+	//System.out.println("Liste des emprunts en cours pour l'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+"): "+adherent1.getEmpruntEnCours());
+	System.out.println();
+	if(adherent1.isConditionsPretAcceptees()==false)
+		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets non acceptés");
+	else
+		System.out.println("L'adherent ("+adherent1.getNom()+" "+adherent1.getPrenom()+") a des prets acceptés");
+	
+
+	}	
 }

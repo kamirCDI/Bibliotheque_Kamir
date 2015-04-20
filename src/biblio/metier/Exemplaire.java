@@ -17,8 +17,6 @@ public class Exemplaire {
 
 /*******************************constructeur***********************************************/
 
-	
-
 	public Exemplaire(int id, Date dateAchat, String isbn) throws BiblioException{
 		setIdExemplaire(id);
 		setDateAchat(dateAchat);
